@@ -154,8 +154,8 @@ angriff(PokemonName1, PokemonName2, Attacke) :-
 
 % "Pokemon1" ist in der selben Evolutionsreihe mit Pokemon2, wenn sich Pokemon1 direkt zu Pokemon2 entwickeln kann, oder sich Pokemon1 indirekt über mehrere Entwicklungen zu Pokemon2 entwickeln kann.
 evolutionsreihe(PokemonName1, PokemonName2) :-
-	entwickeltSich(PokemonName1, PokemonName2, Level); % Prüfen, ob sich Pokemon1 direkt zu Pokemon2 entwickeln kann.
-	(entwickeltSich(PokemonName1, PokemonName3, Level), % Information über das Pokemon (Pokemon3) holen zu dem sich Pokemon1 entwickeln kann.
+	entwickeltSich(PokemonName1, PokemonName2, _); % Prüfen, ob sich Pokemon1 direkt zu Pokemon2 entwickeln kann.
+	(entwickeltSich(PokemonName1, PokemonName3, _), % Information über das Pokemon (Pokemon3) holen zu dem sich Pokemon1 entwickeln kann.
 	evolutionsreihe(PokemonName3, PokemonName2)), % Regel evolutionsreihe neu aufrufen mit Pokemon3 statt Pokemon1.
 	fail; true.
 
